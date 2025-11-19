@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Hello World!"
 date: 2025-08-04 10:00:00 +0800
 categories: [杂谈]
