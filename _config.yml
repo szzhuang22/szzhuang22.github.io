@@ -168,16 +168,16 @@ kramdown:
       start_line: 1
 
 collections:
-  - posts:
-    output: true
-    sort_by: date
-    # permalink 用于生成文章链接，这是 Chirpy 默认或推荐的格式
-    permalink: '/posts/:title/' 
+    posts:
+      output: true
+      sort_by: date
+      # permalink 用于生成文章链接，这是 Chirpy 默认或推荐的格式
+      permalink: '/posts/:title/' 
 
   # 你的 tabs 集合保持不变
-  - tabs:
-    output: true
-    sort_by: order
+    tabs:
+      output: true
+      sort_by: order
 
 defaults:
   - scope:
