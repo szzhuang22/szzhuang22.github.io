@@ -217,7 +217,7 @@ print("sent")
 IsaacSim的GUI的部分就结束了，IsaacSim也算配置完成了。
 
 
-关于IsaacSim的使用，请参考[这篇文章]()
+关于IsaacSim的使用，请参考[这篇文章](/posts/IsaacSim-example-usage)
 
 ### 5.OceanSim的安装与配置
 
