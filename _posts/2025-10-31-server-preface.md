@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "服务器使用前言"
 date: 2025-10-31 21:45:00
 categories: [服务器使用指南]

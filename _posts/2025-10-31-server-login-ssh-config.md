@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "登录与SSH"
 date: 2025-10-31 21:45:00
 categories: [服务器使用指南]

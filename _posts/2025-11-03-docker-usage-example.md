@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Docker 使用指南"
 date: 2025-11-03 10:00:00
 categories: [服务器使用指南]
@@ -24,10 +25,13 @@ curl https://get.docker.com | sh \
 
 ## Docker 基础操作
 
-### 1. 进入 Dockerfile 目录
+### 1. 查看服务器下镜像
 ```bash
-cd /mnt/user-ssd/zhuangweiji/env/docker
+docker images
 ```
+可以看到如下镜像列表
+![镜像列表](/assets/img/docker-guidance-docker-images.png)
+
 
 NVIDIA 提供了多个版本的 CUDA Docker 镜像，以满足不同的开发和运行需求。
 这些镜像主要分为以下几类：
@@ -47,66 +51,64 @@ NVIDIA 提供了多个版本的 CUDA Docker 镜像，以满足不同的开发和
 
 ### 2. 构建镜像
 ```bash
-docker build -t appl/ubuntu2204-cuda121:0.1 .
-docker build -t micr.cloud.mioffice.cn/appl/ubuntu2204-cuda121:0.3 .
+docker build -t ubuntu2204-cuda121:0.1 .
 ```
 - `-t` 指定镜像名称和标签，如 `my-custom-cuda:latest`。
 - `.` 表示使用当前目录中的 Dockerfile。
 
-### 3. 检查构建的镜像
-```bash
-docker images
-```
 
-### 4. 运行镜像并测试
+### 3. 运行镜像并测试
 ```bash
-docker container run --rm -it --gpus all appl/ubuntu2204-cuda121:0.1
+docker container run --rm -it --gpus all ubuntu2204-cuda121:0.1
 ```
 - `--rm`：容器退出时自动删除。
 - `--gpus all`：使用所有可用的 GPU 设备。
 - `-it`：产生一个可互动的终端。
 
-### 5. 推送镜像到 MICR
+### 4. 推送镜像到 私有镜像仓库（Private Container Registry）
+
+这里以[Github Container Registry（GHCR）](https://ghcr.io)为例
+
 1. 登录
 ```bash
-docker login micr.cloud.mioffice.cn -u zhuangweiji -p <password>
+docker login ghcr.io -u <username> -p <password>
 ```
-2. 打标
+2. 打标签
 ```bash
-docker tag appl/ubuntu2204-cuda121:0.1 micr.cloud.mioffice.cn/appl/ubuntu2204-cuda121:0.1
+docker tag <myimage> ghcr.io/<username>/<image>:<tag>
 ```
 3. 推送
 ```bash
-docker push micr.cloud.mioffice.cn/appl/ubuntu2204-cuda121:0.1
+docker push ghcr.io/<username>/<image>:<tag>
 ```
 
-### 6. 删除容器或镜像
+### 5. 删除容器或镜像
 - 删除容器
 ```bash
-docker rm sweet_stonebraker
+docker rm mycontainer
 ```
 - 删除镜像
 ```bash
-docker rmi appl/ubuntu2204-cuda121:0.1
+docker rmi myimage
 ```
 
-### 7. 进入容器进行开发
+### 6. 进入容器进行开发
 ```bash
 docker run \
     --ipc=host \
     --cap-add=SYS_ADMIN \
     --privileged=true \
     --gpus all \
-    -v /mnt:/mnt \
-    -v /home/d1v7-00:/home/d1v7-00 \
+    -v <dirname>:<dirname> \
+    -v <dirname1>:<dirname1> \
     -it \
     -d \
     --name appl-dev \
-    micr.cloud.mioffice.cn/appl/ubuntu2204-cuda121:0.1 \
+    ubuntu2204-cuda121:0.1 \
     /bin/bash
 ```
-- 背景运行容器
-- 连接容器方法：
+
+### 7. 连接容器方法
   - 方法 1：`docker attach <container_id>` 附着到正在运行的容器，进入其终端。
   - 方法 2：`docker exec -it <container_id> bash` 创建一个新的终端，而不是附着到正在运行的容器。
 
@@ -116,12 +118,13 @@ docker ps
 docker ps -a
 ```
 - 显示当前正在运行的容器列表。
-- 不加参数只显示正在运行的容器，加 `-a` 显示所有容器（包括已停止的）。
+- `-a` 显示所有容器（包括已停止的）。
 
 ### 9. 将更改过的容器保存为新镜像
 ```bash
-docker commit <container_id> micr.cloud.mioffice.cn/appl/ubuntu2204-cuda121:dev
+docker commit <container_id> <myimage>:dev
 ```
+- 这里的<container_id>可以通过`docker ps`进行查询。
 
 ## Dockerfile 示例
 ```dockerfile
@@ -148,7 +151,6 @@ cat /etc/docker/daemon.json
         }
     },
     "registry-mirrors": [
-        "https://docker-hub-mirror.d.xiaomi.net",
         "https://mirror.ccs.tencentyun.com",
         "https://registry.docker-cn.com",
         "https://docker.mirrors.ustc.edu.cn"
@@ -166,13 +168,6 @@ cat /etc/docker/daemon.json
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-
-测试网络连通性
-```bash
-ping https://docker-hub-mirror.d.xiaomi.net
-ping docker-hub-mirror.d.xiaomi.net
-```
-这可以用来测试与镜像加速器（docker-hub-mirror.d.xiaomi.net）的网络连通性。
 
 查看 Docker 信息
 ```bash

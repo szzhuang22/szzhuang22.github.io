@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "旅行地图网页设计"
 date: 2025-09-24 13:56:00
 categories: [网页开发]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hello World!"
+title: "博客参考模板"
 date: 2025-08-04 10:00:00 +0800
 categories: [杂谈]
 tags: [开始, 博客, GitHub Pages]

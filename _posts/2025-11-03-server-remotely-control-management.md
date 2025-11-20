@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "远程管理与控制"
 date: 2025-11-03 10:00:00
 categories: [服务器使用指南]
