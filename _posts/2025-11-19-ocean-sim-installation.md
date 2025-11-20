@@ -12,7 +12,7 @@ tags: [水下机器人, IsaacSim, IsaacRos, OceanSim]
 
 --- 
 ## 二、概览
-项目和课题要搭建水下智能体，第一步就是要搭建水下环境专用的仿真平台以获取高保真数据，之前选择了Isaac Sim作为平台，原因可以参考[这篇笔记](2025-11-19-Review-Underwater-Robot-Simulator.md)。关于水下仿真平台，核心部分可以分成三部分，如下图：![水下机器人仿真器框架](/assets/img/underwater-robot-simulator-framework.png)
+项目和课题要搭建水下智能体，第一步就是要搭建水下环境专用的仿真平台以获取高保真数据，之前选择了Isaac Sim作为平台，原因可以参考[这篇笔记](2025-11-19-review-underwater-robot-simulator.md)。关于水下仿真平台，核心部分可以分成三部分，如下图：![水下机器人仿真器框架](/assets/img/underwater-robot-simulator-framework.png)
 
 
 
@@ -30,7 +30,7 @@ OceanSim是用于搭建水下仿真环境的框架，整体项目基于Isaac Sim
 
 点击下面的[Download Isaac Sim](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/index.html)，
 
-可以通过[IsaacSim 官方文档](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/quick-install.html)来指导安装，在左侧Installation下可以看到有Workstation Installation 和 Container Installation 两种方式，我们这里选择使用容器安装，关于Docker的配置与使用可以参考[这篇教程](2025-11-03-docker使用.md)，先点击Isaac Sim Requirements查看依赖项，里面会详细的说明5.0.0版本所需要的硬件配置![硬件依赖](/assets/img/isaac-sim-hardware-requirements.png)
+可以通过[IsaacSim 官方文档](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/quick-install.html)来指导安装，在左侧Installation下可以看到有Workstation Installation 和 Container Installation 两种方式，我们这里选择使用容器安装，关于Docker的配置与使用可以参考[这篇教程](2025-11-03-docker-usage-example.md)，先点击Isaac Sim Requirements查看依赖项，里面会详细的说明5.0.0版本所需要的硬件配置![硬件依赖](/assets/img/isaac-sim-hardware-requirements.png)
 
 
 可以输入以下命令查看本机硬件配置
