@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "OceanSim安装指南"
+title: "Isaac Sim安装指南"
 date: 2025-11-19 15:00:00
 categories: [水下仿真环境开发]
-tags: [水下机器人, IsaacSim, IsaacRos, OceanSim]
+tags: [水下机器人, IsaacSim]
 ---
 
 ## 一、前言
  
-本文用于指导 IsaacSim、OceanSim 以及 ROS2 的安装及配置。截止当前，IsaacSim版本为5.1.0，但本篇中参照[OceanSim官方文档](https://github.com/umfieldrobotics/OceanSim/blob/main/docs/subsections/installation.md)的要求，使用 IsaacSim 5.0.0 进行搭建。
+本文用于指导 IsaacSim 5.0 的安装及配置。截止当前，IsaacSim版本为5.1.0，但本篇中参照[OceanSim官方文档](https://github.com/umfieldrobotics/OceanSim/blob/main/docs/subsections/installation.md)的要求，使用 IsaacSim 5.0.0 进行搭建。
 
 --- 
 ## 二、概览
@@ -19,7 +19,7 @@ tags: [水下机器人, IsaacSim, IsaacRos, OceanSim]
 OceanSim是用于搭建水下仿真环境的框架，整体项目基于Isaac Sim进行开发，作为Isaac Sim的插件使用。OceanSim基于GPU加速水下渲染，并提供了多种水下传感器模型，如DVL、相机、成像声纳等，尤其是声纳部分，使用NVIDIA的光线追踪（Ray Tracing, RT）技术来实现，使得效果更加逼真，计算更快。
 
 
-这篇博客主要是指导IsaacSim与OceanSim的配置过程，并且针对OceanSim里关于传感器模型的实现进行一些分析。
+这篇博客主要是指导IsaacSim的配置过程。
 
 
 ---
