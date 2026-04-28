@@ -68,24 +68,24 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 34px;
+  gap: 28px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  min-width: 310px;
+  gap: 18px;
+  min-width: 430px;
 }
 
 .brand-logo {
   display: block;
-  width: 58px;
-  height: 58px;
-  border: 2px solid rgba(18, 59, 93, 0.16);
-  border-radius: 50%;
+  width: 78px;
+  height: 78px;
+  border: 1px solid rgba(18, 59, 93, 0.14);
+  border-radius: 8px;
   background: #fff;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .brand-name,
@@ -95,13 +95,13 @@ a {
 
 .brand-name {
   color: var(--primary);
-  font-size: 1.28rem;
+  font-size: 1.42rem;
   font-weight: 850;
 }
 
 .brand-subtitle {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 650;
 }
 
@@ -110,7 +110,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: clamp(18px, 2vw, 34px);
+  gap: clamp(14px, 1.45vw, 28px);
   color: var(--muted);
   font-size: 1.05rem;
   font-weight: 750;
@@ -208,22 +208,20 @@ a {
 
 .home-media {
   width: min(1480px, calc(100vw - 40px));
-  height: 520px;
+  aspect-ratio: 16 / 9;
   margin: 0 auto 58px;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: var(--shadow);
-  transition: height 180ms ease, opacity 180ms ease;
+  transform: scale(var(--media-scale, 1));
+  transform-origin: top center;
+  transition: transform 180ms ease, opacity 180ms ease, margin-bottom 180ms ease;
 }
 
 .home-media img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(calc(1 + (0.08 * var(--media-progress, 0))));
-  transition: transform 180ms ease;
+  height: auto;
+  border-radius: 8px;
 }
 
 .hero-grid {
@@ -629,6 +627,14 @@ h3 {
     gap: 16px;
   }
 
+  .brand {
+    min-width: min(100%, 430px);
+  }
+
+  .language-switcher {
+    margin-left: auto;
+  }
+
   .nav-links {
     order: 3;
     width: 100%;
@@ -675,30 +681,31 @@ h3 {
 
   .brand {
     min-width: 0;
+    max-width: calc(100% - 118px);
     gap: 12px;
   }
 
   .brand-logo {
-    width: 48px;
-    height: 48px;
+    width: 58px;
+    height: 58px;
   }
 
   .brand-name {
-    font-size: 1.04rem;
+    font-size: 1.02rem;
+    line-height: 1.2;
   }
 
   .brand-subtitle {
-    display: none;
+    display: block;
+    max-width: 300px;
+    font-size: 0.72rem;
+    line-height: 1.25;
   }
 
   .lang-button {
     min-width: 50px;
     height: 34px;
     font-size: 0.86rem;
-  }
-
-  .language-switcher {
-    margin-left: auto;
   }
 
   .hero-panel {

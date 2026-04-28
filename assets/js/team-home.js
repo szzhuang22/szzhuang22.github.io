@@ -1,8 +1,6 @@
 const translations = {
   en: {
     skip: "Skip to content",
-    brandName: "UWEI Center",
-    brandSubtitle: "Underwater embodied intelligence",
     navHome: "Home",
     navResearch: "Research Output",
     navPeople: "Team Members",
@@ -86,8 +84,6 @@ const translations = {
   },
   zh: {
     skip: "跳到正文",
-    brandName: "水下具身智能中心",
-    brandSubtitle: "水下具身智能学科与技术中心",
     navHome: "首页",
     navResearch: "研究成果",
     navPeople: "团队成员",
@@ -208,12 +204,13 @@ function updateCollapsibleMedia() {
     return;
   }
 
-  const maxHeight = Math.min(520, Math.max(260, window.innerHeight * 0.54));
-  const minHeight = window.innerWidth < 640 ? 118 : 150;
   const progress = Math.min(1, Math.max(0, window.scrollY / 360));
-  const height = maxHeight - (maxHeight - minHeight) * progress;
+  const minScale = window.innerWidth < 640 ? 0.62 : 0.72;
+  const scale = 1 - (1 - minScale) * progress;
+  const margin = 58 - 24 * progress;
 
-  collapsibleMedia.style.height = `${height}px`;
+  collapsibleMedia.style.setProperty("--media-scale", scale.toFixed(3));
+  collapsibleMedia.style.marginBottom = `${margin}px`;
   collapsibleMedia.style.opacity = String(1 - progress * 0.18);
   collapsibleMedia.style.setProperty("--media-progress", progress.toFixed(3));
 }
