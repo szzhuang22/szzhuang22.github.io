@@ -62,31 +62,32 @@ a {
 }
 
 .nav-shell {
-  width: min(1180px, calc(100% - 32px));
-  min-height: 72px;
+  width: min(1480px, calc(100% - 40px));
+  min-height: 96px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 34px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  min-width: 240px;
+  gap: 16px;
+  min-width: 310px;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 58px;
+  height: 58px;
   border-radius: 8px;
   background: var(--primary);
   color: #fff;
-  font-weight: 800;
+  font-size: 1.18rem;
+  font-weight: 850;
   letter-spacing: 0;
 }
 
@@ -97,23 +98,25 @@ a {
 
 .brand-name {
   color: var(--primary);
-  font-size: 0.98rem;
-  font-weight: 800;
+  font-size: 1.28rem;
+  font-weight: 850;
 }
 
 .brand-subtitle {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
+  font-weight: 650;
 }
 
 .nav-links {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: clamp(18px, 2vw, 34px);
   color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 650;
+  font-size: 1.05rem;
+  font-weight: 750;
 }
 
 .nav-links a:hover {
@@ -130,8 +133,8 @@ a {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -8px;
-  height: 2px;
+  bottom: -14px;
+  height: 3px;
   border-radius: 999px;
   background: var(--accent);
   opacity: 0;
@@ -148,22 +151,22 @@ a {
 .language-switcher {
   display: inline-flex;
   flex: 0 0 auto;
-  padding: 4px;
+  padding: 5px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
 }
 
 .lang-button {
-  min-width: 48px;
-  height: 32px;
+  min-width: 56px;
+  height: 38px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
   font: inherit;
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   font-weight: 800;
 }
 
@@ -591,17 +594,25 @@ h3 {
 @media (max-width: 960px) {
   .nav-shell {
     min-height: auto;
-    padding: 14px 0;
+    width: min(100% - 28px, 1180px);
+    padding: 18px 0 14px;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .nav-links {
     order: 3;
     width: 100%;
     justify-content: flex-start;
+    gap: 22px;
     overflow-x: auto;
-    padding-bottom: 4px;
+    padding: 4px 0 8px;
+    font-size: 1rem;
+  }
+
+  .nav-link::after {
+    bottom: -8px;
   }
 
   .hero-grid,
@@ -631,10 +642,27 @@ h3 {
 
   .brand {
     min-width: 0;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+
+  .brand-name {
+    font-size: 1.04rem;
   }
 
   .brand-subtitle {
     display: none;
+  }
+
+  .lang-button {
+    min-width: 50px;
+    height: 34px;
+    font-size: 0.86rem;
   }
 
   .language-switcher {
