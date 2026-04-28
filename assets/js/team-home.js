@@ -3,25 +3,26 @@ const translations = {
     skip: "Skip to content",
     brandName: "Marine Robotics Lab",
     brandSubtitle: "Robotics, simulation, and field systems",
-    navResearch: "Research",
-    navProjects: "Projects",
-    navPeople: "People",
-    navUpdates: "Updates",
-    navContact: "Contact",
+    navHome: "Home",
+    navResearch: "Research Output",
+    navPeople: "Team Members",
+    navNews: "News",
+    navAbout: "About Us",
+    navJoinContact: "Join / Contact",
     heroEyebrow: "Academic team demo",
     heroTitle: "Marine Robotics and Simulation Lab",
     heroLede:
       "We build reliable underwater robotic systems through simulation, field-oriented software, and intelligent infrastructure.",
-    heroPrimary: "View research",
-    heroSecondary: "Contact us",
+    heroPrimary: "View research output",
+    heroSecondary: "Join or contact us",
     metricResearch: "Research directions",
     metricProjects: "Active prototypes",
     keywordOne: "Underwater robotics",
     keywordTwo: "Digital twins",
     keywordThree: "Simulation platforms",
     keywordFour: "Autonomous systems",
-    researchEyebrow: "Research",
-    researchTitle: "Focused problems with deployable outcomes",
+    researchEyebrow: "Research Output",
+    researchTitle: "Research output and representative work",
     researchIntro:
       "The demo groups current work into three directions that can be replaced with the team's real research agenda.",
     researchOneTitle: "Underwater Robotics",
@@ -59,7 +60,7 @@ const translations = {
     personThreeRole: "Infrastructure and deployment",
     personFourName: "Collaborator",
     personFourRole: "Marine robotics applications",
-    updatesEyebrow: "Updates",
+    updatesEyebrow: "News",
     updatesTitle: "Team news and milestones",
     updateOne: "Team homepage demo published for internal review",
     updateTwo: "Prototype research directions prepared for replacement",
@@ -69,6 +70,17 @@ const translations = {
     contactBody:
       "This section can be replaced with the team's official email, institution, GitHub organization, and recruitment information.",
     contactLocation: "Institution / Lab location placeholder",
+    aboutEyebrow: "About Us",
+    aboutTitle: "A lab-shaped demo for robotics research",
+    aboutBody:
+      "This page is a placeholder for the team's mission, institution, research culture, facilities, and collaboration model.",
+    aboutOneTitle: "Mission",
+    aboutOneBody: "Build dependable robotic systems for complex marine environments.",
+    aboutTwoTitle: "Method",
+    aboutTwoBody: "Connect simulation, software infrastructure, and field validation.",
+    aboutThreeTitle: "Collaboration",
+    aboutThreeBody:
+      "Work with students, labs, and engineering partners on deployable outcomes.",
     footerText:
       "Marine Robotics and Simulation Lab demo. Replace with official team information before launch."
   },
@@ -76,25 +88,26 @@ const translations = {
     skip: "跳到正文",
     brandName: "海洋机器人实验室",
     brandSubtitle: "机器人、仿真与现场系统",
-    navResearch: "研究方向",
-    navProjects: "项目",
-    navPeople: "成员",
-    navUpdates: "动态",
-    navContact: "联系",
+    navHome: "首页",
+    navResearch: "研究成果",
+    navPeople: "团队成员",
+    navNews: "新闻动态",
+    navAbout: "关于我们",
+    navJoinContact: "加入我们 / 联系我们",
     heroEyebrow: "学术团队主页 Demo",
     heroTitle: "海洋机器人与仿真实验室",
     heroLede:
       "我们围绕水下机器人系统，建设仿真平台、现场软件和智能基础设施，让机器人研发更可靠、更可复现。",
-    heroPrimary: "查看研究方向",
-    heroSecondary: "联系我们",
+    heroPrimary: "查看研究成果",
+    heroSecondary: "加入或联系我们",
     metricResearch: "研究方向",
     metricProjects: "进行中的原型",
     keywordOne: "水下机器人",
     keywordTwo: "数字孪生",
     keywordThree: "仿真平台",
     keywordFour: "自主系统",
-    researchEyebrow: "研究方向",
-    researchTitle: "面向真实部署的问题研究",
+    researchEyebrow: "研究成果",
+    researchTitle: "研究成果与代表性工作",
     researchIntro:
       "首版 Demo 将团队工作组织成三个方向，后续可以替换为真实的研究议题和成果。",
     researchOneTitle: "水下机器人",
@@ -120,7 +133,7 @@ const translations = {
     projectThreeTitle: "水下机器人仿真器综述",
     projectThreeBody:
       "比较仿真框架的能力、取舍和面向现场机器人研究的缺口。",
-    peopleEyebrow: "成员",
+    peopleEyebrow: "团队成员",
     peopleTitle: "团队结构占位",
     peopleIntro:
       "这里后续替换为负责人、学生、合作成员和毕业成员等真实信息。",
@@ -132,22 +145,61 @@ const translations = {
     personThreeRole: "基础设施与部署",
     personFourName: "合作成员",
     personFourRole: "海洋机器人应用",
-    updatesEyebrow: "动态",
+    updatesEyebrow: "新闻动态",
     updatesTitle: "团队动态与里程碑",
     updateOne: "团队主页 Demo 已发布用于内部预览",
     updateTwo: "研究方向占位内容已准备，后续替换真实信息",
     updateThree: "成员与项目展示结构已完成初稿",
-    contactEyebrow: "联系",
+    contactEyebrow: "加入我们 / 联系我们",
     contactTitle: "欢迎合作、学生加入和面向现场的项目交流",
     contactBody:
       "这里后续可以替换为团队官方邮箱、所属机构、GitHub 组织和招生信息。",
     contactLocation: "机构 / 实验室位置占位",
+    aboutEyebrow: "关于我们",
+    aboutTitle: "面向机器人研究的团队主页 Demo",
+    aboutBody:
+      "这里用于放置团队使命、所属机构、研究文化、实验条件和合作方式等信息。",
+    aboutOneTitle: "使命",
+    aboutOneBody: "构建面向复杂海洋环境的可靠机器人系统。",
+    aboutTwoTitle: "方法",
+    aboutTwoBody: "连接仿真、软件基础设施和现场验证。",
+    aboutThreeTitle: "合作",
+    aboutThreeBody: "与学生、实验室和工程伙伴围绕可部署成果开展合作。",
     footerText: "海洋机器人与仿真实验室 Demo。正式发布前请替换为真实团队信息。"
   }
 };
 
 const languageButtons = document.querySelectorAll("[data-lang]");
 const translatableNodes = document.querySelectorAll("[data-i18n]");
+const viewLinks = document.querySelectorAll("[data-view-link]");
+const pageViews = document.querySelectorAll("[data-view]");
+const validViews = new Set(Array.from(pageViews, (view) => view.getAttribute("data-view")));
+
+function normalizeView(view) {
+  return validViews.has(view) ? view : "home";
+}
+
+function showView(view, updateHash = true) {
+  const nextView = normalizeView(view);
+
+  pageViews.forEach((section) => {
+    section.classList.toggle("is-active", section.getAttribute("data-view") === nextView);
+  });
+
+  viewLinks.forEach((link) => {
+    const isActive = link.getAttribute("data-view-link") === nextView;
+    link.classList.toggle("is-active", isActive);
+    if (link.classList.contains("nav-link")) {
+      link.setAttribute("aria-current", isActive ? "page" : "false");
+    }
+  });
+
+  if (updateHash && window.location.hash !== `#${nextView}`) {
+    window.history.pushState(null, "", `#${nextView}`);
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 function applyLanguage(language) {
   const dictionary = translations[language] || translations.en;
@@ -175,4 +227,16 @@ languageButtons.forEach((button) => {
   });
 });
 
+viewLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    showView(link.getAttribute("data-view-link"));
+  });
+});
+
+window.addEventListener("popstate", () => {
+  showView(window.location.hash.slice(1), false);
+});
+
 applyLanguage(window.localStorage.getItem("team-home-language") || "en");
+showView(window.location.hash.slice(1), false);

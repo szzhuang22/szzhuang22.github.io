@@ -19,7 +19,7 @@ title: Team Homepage Demo
 
     <header class="site-header">
       <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Marine Robotics and Simulation Lab">
+        <a class="brand" href="#home" data-view-link="home" aria-label="Marine Robotics and Simulation Lab">
           <span class="brand-mark">MR</span>
           <span>
             <span class="brand-name" data-i18n="brandName">Marine Robotics Lab</span>
@@ -27,12 +27,13 @@ title: Team Homepage Demo
           </span>
         </a>
 
-        <div class="nav-links" aria-label="Page sections">
-          <a href="#research" data-i18n="navResearch">Research</a>
-          <a href="#projects" data-i18n="navProjects">Projects</a>
-          <a href="#people" data-i18n="navPeople">People</a>
-          <a href="#updates" data-i18n="navUpdates">Updates</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
+        <div class="nav-links" aria-label="Top-level menu">
+          <a class="nav-link is-active" href="#home" data-view-link="home" data-i18n="navHome">Home</a>
+          <a class="nav-link" href="#research" data-view-link="research" data-i18n="navResearch">Research Output</a>
+          <a class="nav-link" href="#people" data-view-link="people" data-i18n="navPeople">Team Members</a>
+          <a class="nav-link" href="#news" data-view-link="news" data-i18n="navNews">News</a>
+          <a class="nav-link" href="#about" data-view-link="about" data-i18n="navAbout">About Us</a>
+          <a class="nav-link" href="#join" data-view-link="join" data-i18n="navJoinContact">Join / Contact</a>
         </div>
 
         <div class="language-switcher" aria-label="Language switcher">
@@ -42,8 +43,8 @@ title: Team Homepage Demo
       </nav>
     </header>
 
-    <main id="main">
-      <section class="hero" id="top">
+    <main id="main" class="view-root">
+      <section class="hero page-view is-active" id="home" data-view="home">
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="eyebrow" data-i18n="heroEyebrow">Academic team demo</p>
@@ -52,8 +53,8 @@ title: Team Homepage Demo
               We build reliable underwater robotic systems through simulation, field-oriented software, and intelligent infrastructure.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#research" data-i18n="heroPrimary">View research</a>
-              <a class="button secondary" href="#contact" data-i18n="heroSecondary">Contact us</a>
+              <a class="button primary" href="#research" data-view-link="research" data-i18n="heroPrimary">View research output</a>
+              <a class="button secondary" href="#join" data-view-link="join" data-i18n="heroSecondary">Join or contact us</a>
             </div>
           </div>
 
@@ -86,10 +87,10 @@ title: Team Homepage Demo
         </div>
       </section>
 
-      <section class="section" id="research">
+      <section class="section page-view" id="research" data-view="research">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="researchEyebrow">Research</p>
-          <h2 data-i18n="researchTitle">Focused problems with deployable outcomes</h2>
+          <p class="eyebrow" data-i18n="researchEyebrow">Research Output</p>
+          <h2 data-i18n="researchTitle">Research output and representative work</h2>
           <p data-i18n="researchIntro">
             The demo groups current work into three directions that can be replaced with the team's real research agenda.
           </p>
@@ -119,7 +120,7 @@ title: Team Homepage Demo
         </div>
       </section>
 
-      <section class="section section-tinted" id="projects">
+      <section class="section section-tinted page-view" id="projects" data-view="research">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="projectsEyebrow">Projects</p>
           <h2 data-i18n="projectsTitle">Representative work in progress</h2>
@@ -155,9 +156,9 @@ title: Team Homepage Demo
         </div>
       </section>
 
-      <section class="section" id="people">
+      <section class="section page-view" id="people" data-view="people">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="peopleEyebrow">People</p>
+          <p class="eyebrow" data-i18n="peopleEyebrow">Team Members</p>
           <h2 data-i18n="peopleTitle">Team structure placeholder</h2>
           <p data-i18n="peopleIntro">
             Replace these demo profiles with the principal investigator, students, collaborators, and alumni.
@@ -187,10 +188,10 @@ title: Team Homepage Demo
         </div>
       </section>
 
-      <section class="section section-tinted" id="updates">
+      <section class="section section-tinted page-view" id="news" data-view="news">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="updatesEyebrow">Updates</p>
-          <h2 data-i18n="updatesTitle">Recent notes and technical records</h2>
+          <p class="eyebrow" data-i18n="updatesEyebrow">News</p>
+          <h2 data-i18n="updatesTitle">Team news and milestones</h2>
         </div>
         <div class="updates-list">
           <article class="update-item">
@@ -208,9 +209,36 @@ title: Team Homepage Demo
         </div>
       </section>
 
-      <section class="section contact-section" id="contact">
+      <section class="section page-view" id="about" data-view="about">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="aboutEyebrow">About Us</p>
+          <h2 data-i18n="aboutTitle">A lab-shaped demo for robotics research</h2>
+          <p data-i18n="aboutBody">
+            This page is a placeholder for the team's mission, institution, research culture, facilities, and collaboration model.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="card-index">A</span>
+            <h3 data-i18n="aboutOneTitle">Mission</h3>
+            <p data-i18n="aboutOneBody">Build dependable robotic systems for complex marine environments.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">B</span>
+            <h3 data-i18n="aboutTwoTitle">Method</h3>
+            <p data-i18n="aboutTwoBody">Connect simulation, software infrastructure, and field validation.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">C</span>
+            <h3 data-i18n="aboutThreeTitle">Collaboration</h3>
+            <p data-i18n="aboutThreeBody">Work with students, labs, and engineering partners on deployable outcomes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section page-view" id="join" data-view="join">
         <div class="contact-copy">
-          <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+          <p class="eyebrow" data-i18n="contactEyebrow">Join / Contact</p>
           <h2 data-i18n="contactTitle">Open to collaboration, students, and field-oriented projects</h2>
           <p data-i18n="contactBody">
             This section can be replaced with the team's official email, institution, GitHub organization, and recruitment information.
