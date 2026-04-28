@@ -78,17 +78,14 @@ a {
   min-width: 310px;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
+.brand-logo {
+  display: block;
   width: 58px;
   height: 58px;
-  border-radius: 8px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 1.18rem;
-  font-weight: 850;
-  letter-spacing: 0;
+  border: 2px solid rgba(18, 59, 93, 0.16);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
 }
 
 .brand-name,
@@ -195,7 +192,38 @@ a {
 }
 
 .hero {
-  padding: 82px 0 46px;
+  padding: 28px 0 46px;
+}
+
+.hero[data-view="home"] {
+  width: 100%;
+}
+
+.hero[data-view="home"] .hero-grid,
+.hero[data-view="home"] .keyword-row {
+  width: min(1180px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-media {
+  width: min(1480px, calc(100vw - 40px));
+  height: 520px;
+  margin: 0 auto 58px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: height 180ms ease, opacity 180ms ease;
+}
+
+.home-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(calc(1 + (0.08 * var(--media-progress, 0))));
+  transition: transform 180ms ease;
 }
 
 .hero-grid {
@@ -208,7 +236,7 @@ a {
 .eyebrow {
   margin: 0 0 12px;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 850;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -637,7 +665,12 @@ h3 {
   }
 
   .hero {
-    padding-top: 50px;
+    padding-top: 18px;
+  }
+
+  .home-media {
+    width: min(100% - 24px, 1180px);
+    margin-bottom: 34px;
   }
 
   .brand {
@@ -645,10 +678,9 @@ h3 {
     gap: 12px;
   }
 
-  .brand-mark {
+  .brand-logo {
     width: 48px;
     height: 48px;
-    font-size: 1rem;
   }
 
   .brand-name {

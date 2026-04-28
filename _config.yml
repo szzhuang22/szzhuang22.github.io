@@ -15,9 +15,9 @@ future: true
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Marine Robotics and Simulation Lab # the main title
+title: Underwater Embodied Intelligence Center # the main title
 
-tagline: Robotics, simulation, and field systems # it will display as the subtitle
+tagline: Underwater embodied intelligence # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A bilingual demo homepage for an academic team focused on underwater robotics,
@@ -36,7 +36,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Marine Robotics and Simulation Lab
+  name: Underwater Embodied Intelligence Center
   email: team@example.edu # change to your email address
   links:
     # The first element serves as the copyright owner's link

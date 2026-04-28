@@ -1,8 +1,8 @@
 const translations = {
   en: {
     skip: "Skip to content",
-    brandName: "Marine Robotics Lab",
-    brandSubtitle: "Robotics, simulation, and field systems",
+    brandName: "UWEI Center",
+    brandSubtitle: "Underwater embodied intelligence",
     navHome: "Home",
     navResearch: "Research Output",
     navPeople: "Team Members",
@@ -10,7 +10,7 @@ const translations = {
     navAbout: "About Us",
     navJoinContact: "Join / Contact",
     heroEyebrow: "Academic team demo",
-    heroTitle: "Marine Robotics and Simulation Lab",
+    heroTitle: "Underwater Embodied Intelligence Center",
     heroLede:
       "We build reliable underwater robotic systems through simulation, field-oriented software, and intelligent infrastructure.",
     heroPrimary: "View research output",
@@ -82,12 +82,12 @@ const translations = {
     aboutThreeBody:
       "Work with students, labs, and engineering partners on deployable outcomes.",
     footerText:
-      "Marine Robotics and Simulation Lab demo. Replace with official team information before launch."
+      "Underwater Embodied Intelligence Center demo. Replace with official team information before launch."
   },
   zh: {
     skip: "跳到正文",
-    brandName: "海洋机器人实验室",
-    brandSubtitle: "机器人、仿真与现场系统",
+    brandName: "水下具身智能中心",
+    brandSubtitle: "水下具身智能学科与技术中心",
     navHome: "首页",
     navResearch: "研究成果",
     navPeople: "团队成员",
@@ -95,7 +95,7 @@ const translations = {
     navAbout: "关于我们",
     navJoinContact: "加入我们 / 联系我们",
     heroEyebrow: "学术团队主页 Demo",
-    heroTitle: "海洋机器人与仿真实验室",
+    heroTitle: "水下具身智能学科与技术中心",
     heroLede:
       "我们围绕水下机器人系统，建设仿真平台、现场软件和智能基础设施，让机器人研发更可靠、更可复现。",
     heroPrimary: "查看研究成果",
@@ -173,6 +173,7 @@ const languageButtons = document.querySelectorAll("[data-lang]");
 const translatableNodes = document.querySelectorAll("[data-i18n]");
 const viewLinks = document.querySelectorAll("[data-view-link]");
 const pageViews = document.querySelectorAll("[data-view]");
+const collapsibleMedia = document.querySelector("[data-collapsible-media]");
 const validViews = new Set(Array.from(pageViews, (view) => view.getAttribute("data-view")));
 
 function normalizeView(view) {
@@ -199,6 +200,22 @@ function showView(view, updateHash = true) {
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+  updateCollapsibleMedia();
+}
+
+function updateCollapsibleMedia() {
+  if (!collapsibleMedia) {
+    return;
+  }
+
+  const maxHeight = Math.min(520, Math.max(260, window.innerHeight * 0.54));
+  const minHeight = window.innerWidth < 640 ? 118 : 150;
+  const progress = Math.min(1, Math.max(0, window.scrollY / 360));
+  const height = maxHeight - (maxHeight - minHeight) * progress;
+
+  collapsibleMedia.style.height = `${height}px`;
+  collapsibleMedia.style.opacity = String(1 - progress * 0.18);
+  collapsibleMedia.style.setProperty("--media-progress", progress.toFixed(3));
 }
 
 function applyLanguage(language) {
@@ -238,5 +255,9 @@ window.addEventListener("popstate", () => {
   showView(window.location.hash.slice(1), false);
 });
 
+window.addEventListener("scroll", updateCollapsibleMedia, { passive: true });
+window.addEventListener("resize", updateCollapsibleMedia);
+
 applyLanguage(window.localStorage.getItem("team-home-language") || "en");
 showView(window.location.hash.slice(1), false);
+updateCollapsibleMedia();
