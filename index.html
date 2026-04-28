@@ -1,4 +1,236 @@
 ---
-layout: home
-# Index page
+layout: null
+title: Team Homepage Demo
 ---
+{% assign oceansim_post = site.posts | where_exp: "post", "post.path == '_posts/2026-01-06-ocean-sim-installation.md'" | first %}
+{% assign simulator_post = site.posts | where_exp: "post", "post.path == '_posts/2025-11-19-review-underwater-robot-simulator.md'" | first %}
+{% assign isaac_post = site.posts | where_exp: "post", "post.path == '_posts/2025-11-19-isaac-sim-installation.md'" | first %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marine Robotics and Simulation Lab</title>
+    <meta
+      name="description"
+      content="A bilingual demo homepage for an academic team focused on underwater robotics, robot simulation, and intelligent systems infrastructure."
+    >
+    <link rel="stylesheet" href="{{ '/assets/css/team-home.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Marine Robotics and Simulation Lab">
+          <span class="brand-mark">MR</span>
+          <span>
+            <span class="brand-name" data-i18n="brandName">Marine Robotics Lab</span>
+            <span class="brand-subtitle" data-i18n="brandSubtitle">Robotics, simulation, and field systems</span>
+          </span>
+        </a>
+
+        <div class="nav-links" aria-label="Page sections">
+          <a href="#research" data-i18n="navResearch">Research</a>
+          <a href="#projects" data-i18n="navProjects">Projects</a>
+          <a href="#people" data-i18n="navPeople">People</a>
+          <a href="#updates" data-i18n="navUpdates">Updates</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="language-switcher" aria-label="Language switcher">
+          <button class="lang-button is-active" type="button" data-lang="en">EN</button>
+          <button class="lang-button" type="button" data-lang="zh">中文</button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="heroEyebrow">Academic team demo</p>
+            <h1 data-i18n="heroTitle">Marine Robotics and Simulation Lab</h1>
+            <p class="hero-lede" data-i18n="heroLede">
+              We build reliable underwater robotic systems through simulation, field-oriented software, and intelligent infrastructure.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#research" data-i18n="heroPrimary">View research</a>
+              <a class="button secondary" href="#contact" data-i18n="heroSecondary">Contact us</a>
+            </div>
+          </div>
+
+          <div class="hero-panel" aria-label="Team focus areas">
+            <div class="metric-card">
+              <span class="metric-value">03</span>
+              <span class="metric-label" data-i18n="metricResearch">Research directions</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">06+</span>
+              <span class="metric-label" data-i18n="metricProjects">Active prototypes</span>
+            </div>
+            <div class="signal-map">
+              <span class="node node-a"></span>
+              <span class="node node-b"></span>
+              <span class="node node-c"></span>
+              <span class="node node-d"></span>
+              <span class="signal-line line-a"></span>
+              <span class="signal-line line-b"></span>
+              <span class="signal-line line-c"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="keyword-row" aria-label="Research keywords">
+          <span data-i18n="keywordOne">Underwater robotics</span>
+          <span data-i18n="keywordTwo">Digital twins</span>
+          <span data-i18n="keywordThree">Simulation platforms</span>
+          <span data-i18n="keywordFour">Autonomous systems</span>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="researchEyebrow">Research</p>
+          <h2 data-i18n="researchTitle">Focused problems with deployable outcomes</h2>
+          <p data-i18n="researchIntro">
+            The demo groups current work into three directions that can be replaced with the team's real research agenda.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="card-index">01</span>
+            <h3 data-i18n="researchOneTitle">Underwater Robotics</h3>
+            <p data-i18n="researchOneBody">
+              Vehicle modeling, sensing pipelines, and autonomy workflows for marine field environments.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">02</span>
+            <h3 data-i18n="researchTwoTitle">Robot Simulation</h3>
+            <p data-i18n="researchTwoBody">
+              Isaac Sim and OceanSim based environments for repeatable testing, evaluation, and data generation.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">03</span>
+            <h3 data-i18n="researchThreeTitle">Systems Infrastructure</h3>
+            <p data-i18n="researchThreeBody">
+              Containers, remote visualization, server workflows, and reproducible engineering environments.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="projectsEyebrow">Projects</p>
+          <h2 data-i18n="projectsTitle">Representative work in progress</h2>
+        </div>
+        <div class="project-list">
+          <article class="project-item">
+            <div>
+              <p class="project-status" data-i18n="projectOneStatus">Prototype</p>
+              <h3 data-i18n="projectOneTitle">OceanSim Integration Toolkit</h3>
+            </div>
+            <p data-i18n="projectOneBody">
+              A practical setup path for underwater robot simulation assets, sensors, and Isaac Sim deployment.
+            </p>
+          </article>
+          <article class="project-item">
+            <div>
+              <p class="project-status" data-i18n="projectTwoStatus">Infrastructure</p>
+              <h3 data-i18n="projectTwoTitle">Remote Simulation Workbench</h3>
+            </div>
+            <p data-i18n="projectTwoBody">
+              Server-side GUI, WebRTC streaming, container images, and shared development workflows.
+            </p>
+          </article>
+          <article class="project-item">
+            <div>
+              <p class="project-status" data-i18n="projectThreeStatus">Study</p>
+              <h3 data-i18n="projectThreeTitle">Underwater Simulator Review</h3>
+            </div>
+            <p data-i18n="projectThreeBody">
+              Comparative notes on simulation frameworks, tradeoffs, and gaps for field robotics research.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="people">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="peopleEyebrow">People</p>
+          <h2 data-i18n="peopleTitle">Team structure placeholder</h2>
+          <p data-i18n="peopleIntro">
+            Replace these demo profiles with the principal investigator, students, collaborators, and alumni.
+          </p>
+        </div>
+        <div class="people-grid">
+          <article class="person-card">
+            <span class="avatar">PI</span>
+            <h3 data-i18n="personOneName">Principal Investigator</h3>
+            <p data-i18n="personOneRole">Robotics and intelligent systems</p>
+          </article>
+          <article class="person-card">
+            <span class="avatar">RS</span>
+            <h3 data-i18n="personTwoName">Research Student</h3>
+            <p data-i18n="personTwoRole">Simulation and perception</p>
+          </article>
+          <article class="person-card">
+            <span class="avatar">SE</span>
+            <h3 data-i18n="personThreeName">Systems Engineer</h3>
+            <p data-i18n="personThreeRole">Infrastructure and deployment</p>
+          </article>
+          <article class="person-card">
+            <span class="avatar">CL</span>
+            <h3 data-i18n="personFourName">Collaborator</h3>
+            <p data-i18n="personFourRole">Marine robotics applications</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="updates">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="updatesEyebrow">Updates</p>
+          <h2 data-i18n="updatesTitle">Recent notes and technical records</h2>
+        </div>
+        <div class="updates-list">
+          <a class="update-item" href="{{ oceansim_post.url | default: '#' | relative_url }}">
+            <time datetime="2025-11-20">2025.11.20</time>
+            <span data-i18n="updateOne">OceanSim usage and installation notes</span>
+          </a>
+          <a class="update-item" href="{{ simulator_post.url | default: '#' | relative_url }}">
+            <time datetime="2025-11-19">2025.11.19</time>
+            <span data-i18n="updateTwo">Underwater robot simulator review</span>
+          </a>
+          <a class="update-item" href="{{ isaac_post.url | default: '#' | relative_url }}">
+            <time datetime="2025-11-19">2025.11.19</time>
+            <span data-i18n="updateThree">Isaac Sim installation workflow</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+          <h2 data-i18n="contactTitle">Open to collaboration, students, and field-oriented projects</h2>
+          <p data-i18n="contactBody">
+            This section can be replaced with the team's official email, institution, GitHub organization, and recruitment information.
+          </p>
+        </div>
+        <div class="contact-card">
+          <a href="mailto:team@example.edu">team@example.edu</a>
+          <a href="https://github.com/szzhuang22">github.com/szzhuang22</a>
+          <span data-i18n="contactLocation">Institution / Lab location placeholder</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-i18n="footerText">Marine Robotics and Simulation Lab demo. Replace with official team information before launch.</span>
+    </footer>
+
+    <script src="{{ '/assets/js/team-home.js' | relative_url }}"></script>
+  </body>
+</html>
