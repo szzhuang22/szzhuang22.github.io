@@ -2,9 +2,6 @@
 layout: null
 title: Team Homepage Demo
 ---
-{% assign oceansim_post = site.posts | where_exp: "post", "post.path == '_posts/2026-01-06-ocean-sim-installation.md'" | first %}
-{% assign simulator_post = site.posts | where_exp: "post", "post.path == '_posts/2025-11-19-review-underwater-robot-simulator.md'" | first %}
-{% assign isaac_post = site.posts | where_exp: "post", "post.path == '_posts/2025-11-19-isaac-sim-installation.md'" | first %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -196,18 +193,18 @@ title: Team Homepage Demo
           <h2 data-i18n="updatesTitle">Recent notes and technical records</h2>
         </div>
         <div class="updates-list">
-          <a class="update-item" href="{{ oceansim_post.url | default: '#' | relative_url }}">
-            <time datetime="2025-11-20">2025.11.20</time>
-            <span data-i18n="updateOne">OceanSim usage and installation notes</span>
-          </a>
-          <a class="update-item" href="{{ simulator_post.url | default: '#' | relative_url }}">
-            <time datetime="2025-11-19">2025.11.19</time>
-            <span data-i18n="updateTwo">Underwater robot simulator review</span>
-          </a>
-          <a class="update-item" href="{{ isaac_post.url | default: '#' | relative_url }}">
-            <time datetime="2025-11-19">2025.11.19</time>
-            <span data-i18n="updateThree">Isaac Sim installation workflow</span>
-          </a>
+          <article class="update-item">
+            <time datetime="2026-04-28">2026.04.28</time>
+            <span data-i18n="updateOne">Team homepage demo published for internal review</span>
+          </article>
+          <article class="update-item">
+            <time datetime="2026-04-15">2026.04.15</time>
+            <span data-i18n="updateTwo">Prototype research directions prepared for replacement</span>
+          </article>
+          <article class="update-item">
+            <time datetime="2026-04-01">2026.04.01</time>
+            <span data-i18n="updateThree">Placeholder member and project structure drafted</span>
+          </article>
         </div>
       </section>
 
