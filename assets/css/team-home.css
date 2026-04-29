@@ -440,6 +440,107 @@ a {
   background: #fff;
 }
 
+.overview-section {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.overview-copy {
+  max-width: 940px;
+}
+
+.overview-copy h1 {
+  max-width: 980px;
+  margin-top: 18px;
+  font-size: 30px;
+}
+
+.overview-lede {
+  max-width: 900px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.35vw, 1.24rem);
+}
+
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 42px;
+}
+
+.overview-actions {
+  margin-top: 30px;
+}
+
+.overview-card {
+  position: relative;
+  min-height: 310px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.overview-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.overview-card-glass {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: #fff;
+  backdrop-filter: blur(12px) saturate(1.18);
+  transition: background 260ms ease, backdrop-filter 260ms ease;
+}
+
+.overview-card-teal .overview-card-glass {
+  background: rgba(22, 125, 122, 0.58);
+}
+
+.overview-card-blue .overview-card-glass {
+  background: rgba(18, 59, 93, 0.58);
+}
+
+.overview-card-indigo .overview-card-glass {
+  background: rgba(64, 83, 132, 0.58);
+}
+
+.overview-card h3 {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.overview-card p {
+  max-width: 330px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.overview-card:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.overview-card:hover .overview-card-glass {
+  background: rgba(8, 16, 24, 0.1);
+  backdrop-filter: blur(0) saturate(1);
+}
+
+.overview-card:hover p {
+  color: rgba(255, 255, 255, 0.94);
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
@@ -450,7 +551,7 @@ a {
 .eyebrow {
   margin: 0 0 12px;
   color: var(--accent);
-  font-size: 1rem;
+  font-size: 25px;
   font-weight: 850;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -888,6 +989,17 @@ h3 {
   color: #ffffff;
 }
 
+.footer-address {
+  width: min(1180px, calc(100% - 32px));
+  margin: 34px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(174, 185, 195, 0.22);
+  color: #aeb9c3;
+  font-size: 0.92rem;
+  font-weight: 750;
+  text-align: center;
+}
+
 @media (max-width: 960px) {
   .nav-shell {
     min-height: auto;
@@ -934,6 +1046,15 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card,
+  .overview-card img {
+    min-height: 260px;
+  }
+
   .footer-shell {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -959,6 +1080,18 @@ h3 {
   .home-media {
     width: min(100% - 24px, 1180px);
     margin-bottom: 34px;
+  }
+
+  .overview-section {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .overview-cards {
+    margin-top: 30px;
+  }
+
+  .overview-card-glass {
+    padding: 18px;
   }
 
   .brand {

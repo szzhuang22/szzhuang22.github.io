@@ -78,45 +78,44 @@ title: Team Homepage Demo
             <button class="media-dot" type="button" data-media-dot="1" aria-label="Show second media"></button>
           </div>
         </div>
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow" data-i18n="heroEyebrow">Academic team demo</p>
-            <h1 data-i18n="heroTitle">Underwater Embodied Intelligence Center</h1>
-            <p class="hero-lede" data-i18n="heroLede">
-              We build reliable underwater robotic systems through simulation, field-oriented software, and intelligent infrastructure.
+
+        <div class="overview-section">
+          <div class="overview-copy">
+            <p class="eyebrow" data-i18n="overviewEyebrow">At a Glance</p>
+            <h1 data-i18n="overviewTitle">Embodied intelligence R&D for underwater environments</h1>
+            <p class="overview-lede" data-i18n="overviewBody">
+              The center focuses on underwater robotics, intelligent perception, simulation-based validation, and autonomous systems for complex underwater environments.
             </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#research" data-view-link="research" data-i18n="heroPrimary">View research output</a>
-              <a class="button secondary" href="#join" data-view-link="join" data-i18n="heroSecondary">Join or contact us</a>
-            </div>
           </div>
 
-          <div class="hero-panel" aria-label="Team focus areas">
-            <div class="metric-card">
-              <span class="metric-value">03</span>
-              <span class="metric-label" data-i18n="metricResearch">Research directions</span>
-            </div>
-            <div class="metric-card">
-              <span class="metric-value">06+</span>
-              <span class="metric-label" data-i18n="metricProjects">Active prototypes</span>
-            </div>
-            <div class="signal-map">
-              <span class="node node-a"></span>
-              <span class="node node-b"></span>
-              <span class="node node-c"></span>
-              <span class="node node-d"></span>
-              <span class="signal-line line-a"></span>
-              <span class="signal-line line-b"></span>
-              <span class="signal-line line-c"></span>
-            </div>
+          <div class="overview-cards" aria-label="Center focus areas">
+            <article class="overview-card overview-card-teal">
+              <img src="{{ '/assets/img/team/experiments.gif' | relative_url }}" alt="Underwater sensing experiment">
+              <div class="overview-card-glass">
+                <h3 data-i18n="overviewCardOneTitle">Perception and Understanding</h3>
+                <p data-i18n="overviewCardOneBody">Multimodal perception and scene understanding for low-light, dynamic underwater environments.</p>
+              </div>
+            </article>
+            <article class="overview-card overview-card-blue">
+              <img src="{{ '/assets/img/team/mine.gif' | relative_url }}" alt="Underwater robotic system experiment">
+              <div class="overview-card-glass">
+                <h3 data-i18n="overviewCardTwoTitle">Autonomy and Control</h3>
+                <p data-i18n="overviewCardTwoBody">Embodied decision-making, motion control, and mission planning for underwater robotic systems.</p>
+              </div>
+            </article>
+            <article class="overview-card overview-card-indigo">
+              <img src="{{ '/assets/img/underwater-robot-simulator-framework.png' | relative_url }}" alt="Underwater robot simulation framework">
+              <div class="overview-card-glass">
+                <h3 data-i18n="overviewCardThreeTitle">Simulation and Platforms</h3>
+                <p data-i18n="overviewCardThreeBody">Simulation, digital twins, and experimental platforms for repeatable algorithm validation.</p>
+              </div>
+            </article>
           </div>
-        </div>
 
-        <div class="keyword-row" aria-label="Research keywords">
-          <span data-i18n="keywordOne">Underwater robotics</span>
-          <span data-i18n="keywordTwo">Digital twins</span>
-          <span data-i18n="keywordThree">Simulation platforms</span>
-          <span data-i18n="keywordFour">Autonomous systems</span>
+          <div class="hero-actions overview-actions">
+            <a class="button primary" href="#research" data-view-link="research" data-i18n="overviewPrimary">View research output</a>
+            <a class="button secondary" href="#about" data-view-link="about" data-i18n="overviewSecondary">About the center</a>
+          </div>
         </div>
       </section>
 
@@ -305,6 +304,7 @@ title: Team Homepage Demo
           <span>Beijing, China</span>
         </div>
       </div>
+      <p class="footer-address">地址：北京市海淀区北四环西路21号中国科学院声学研究所&nbsp;&nbsp;&nbsp;&nbsp;邮编：100190</p>
     </footer>
 
     <script src="{{ '/assets/js/team-home.js' | relative_url }}"></script>
