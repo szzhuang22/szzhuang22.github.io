@@ -20,7 +20,7 @@ title: Team Homepage Demo
     <header class="site-header">
       <nav class="nav-shell" aria-label="Primary navigation">
         <a class="brand" href="#home" data-view-link="home" aria-label="Underwater Embodied Intelligence Center">
-          <img class="brand-logo" src="{{ '/assets/img/team/uwei-logo.jpg' | relative_url }}" alt="Underwater Embodied Intelligence Discipline and Technology Center logo">
+          <img class="brand-logo" src="{{ '/assets/img/team/uwei-logo-header.png' | relative_url }}" alt="Underwater Embodied Intelligence Discipline and Technology Center logo">
           <span>
             <span class="brand-name">水下具身智能学科与技术中心</span>
             <span class="brand-subtitle">Underwater Embodied Intelligence Discipline and Technology Center</span>
@@ -36,17 +36,47 @@ title: Team Homepage Demo
           <a class="nav-link" href="#join" data-view-link="join" data-i18n="navJoinContact">Join / Contact</a>
         </div>
 
-        <div class="language-switcher" aria-label="Language switcher">
-          <button class="lang-button is-active" type="button" data-lang="en">EN</button>
-          <button class="lang-button" type="button" data-lang="zh">中文</button>
+        <div class="nav-tools">
+          <button class="search-trigger" type="button" data-search-open aria-label="Open search">
+            <span class="search-icon" aria-hidden="true"></span>
+            <span data-i18n="searchTrigger">Search</span>
+          </button>
+
+          <div class="language-switcher" aria-label="Language switcher">
+            <button class="lang-button is-active" type="button" data-lang="en">EN</button>
+            <button class="lang-button" type="button" data-lang="zh">中文</button>
+          </div>
         </div>
       </nav>
+
+      <div class="search-panel" data-search-panel aria-hidden="true">
+        <div class="search-panel-shell">
+          <span class="search-icon search-panel-icon" aria-hidden="true"></span>
+          <input class="search-input" type="search" data-search-input placeholder="Search the center" autocomplete="off">
+          <button class="search-close" type="button" data-search-close aria-label="Close search">×</button>
+        </div>
+      </div>
     </header>
+
+    <div class="page-frost" data-search-backdrop></div>
 
     <main id="main" class="view-root">
       <section class="hero page-view is-active" id="home" data-view="home">
         <div class="home-media" data-collapsible-media>
-          <img src="{{ '/assets/img/team/experiments.gif' | relative_url }}" alt="Underwater robotics experiment in a test pool">
+          <div class="media-track" data-media-track>
+            <figure class="media-slide is-active">
+              <img src="{{ '/assets/img/team/experiments.gif' | relative_url }}" alt="Underwater robotics experiment in a test pool">
+            </figure>
+            <figure class="media-slide">
+              <img src="{{ '/assets/img/team/mine.gif' | relative_url }}" alt="Underwater mining robotics experiment">
+            </figure>
+          </div>
+          <button class="media-control media-control-prev" type="button" data-media-prev aria-label="Previous media">‹</button>
+          <button class="media-control media-control-next" type="button" data-media-next aria-label="Next media">›</button>
+          <div class="media-dots" aria-label="Media carousel">
+            <button class="media-dot is-active" type="button" data-media-dot="0" aria-label="Show first media"></button>
+            <button class="media-dot" type="button" data-media-dot="1" aria-label="Show second media"></button>
+          </div>
         </div>
         <div class="hero-grid">
           <div class="hero-copy">
@@ -255,8 +285,26 @@ title: Team Homepage Demo
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span data-i18n="footerText">Underwater Embodied Intelligence Center demo. Replace with official team information before launch.</span>
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="footer-shell">
+        <div class="footer-meta">
+          <p class="footer-heading">水下具身智能学科与技术中心</p>
+          <p>Underwater Embodied Intelligence Discipline and Technology Center</p>
+          <p>Copyright © 2026 UWEI Center</p>
+        </div>
+
+        <div class="footer-brand" aria-label="Center logo">
+          <img src="{{ '/assets/img/team/uwei-logo-grey.png' | relative_url }}" alt="Underwater Embodied Intelligence Discipline and Technology Center logo">
+          <img src="{{ '/assets/img/team/ioa-logo-grey.png' | relative_url }}" alt="Institute of Automation logo">
+        </div>
+
+        <div class="footer-links" aria-label="Contact links">
+          <p class="footer-heading">Contact</p>
+          <a href="mailto:team@example.edu">team@example.edu</a>
+          <a href="https://github.com/szzhuang22">GitHub</a>
+          <span>Beijing, China</span>
+        </div>
+      </div>
     </footer>
 
     <script src="{{ '/assets/js/team-home.js' | relative_url }}"></script>

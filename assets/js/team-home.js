@@ -7,6 +7,8 @@ const translations = {
     navNews: "News",
     navAbout: "About Us",
     navJoinContact: "Join / Contact",
+    searchTrigger: "Search",
+    searchPlaceholder: "Search the center",
     heroEyebrow: "Academic team demo",
     heroTitle: "Underwater Embodied Intelligence Center",
     heroLede:
@@ -78,9 +80,7 @@ const translations = {
     aboutTwoBody: "Connect simulation, software infrastructure, and field validation.",
     aboutThreeTitle: "Collaboration",
     aboutThreeBody:
-      "Work with students, labs, and engineering partners on deployable outcomes.",
-    footerText:
-      "Underwater Embodied Intelligence Center demo. Replace with official team information before launch."
+      "Work with students, labs, and engineering partners on deployable outcomes."
   },
   zh: {
     skip: "跳到正文",
@@ -90,6 +90,8 @@ const translations = {
     navNews: "新闻动态",
     navAbout: "关于我们",
     navJoinContact: "加入我们 / 联系我们",
+    searchTrigger: "搜索",
+    searchPlaceholder: "搜索中心内容",
     heroEyebrow: "学术团队主页 Demo",
     heroTitle: "水下具身智能学科与技术中心",
     heroLede:
@@ -160,8 +162,7 @@ const translations = {
     aboutTwoTitle: "方法",
     aboutTwoBody: "连接仿真、软件基础设施和现场验证。",
     aboutThreeTitle: "合作",
-    aboutThreeBody: "与学生、实验室和工程伙伴围绕可部署成果开展合作。",
-    footerText: "海洋机器人与仿真实验室 Demo。正式发布前请替换为真实团队信息。"
+    aboutThreeBody: "与学生、实验室和工程伙伴围绕可部署成果开展合作。"
   }
 };
 
@@ -170,7 +171,20 @@ const translatableNodes = document.querySelectorAll("[data-i18n]");
 const viewLinks = document.querySelectorAll("[data-view-link]");
 const pageViews = document.querySelectorAll("[data-view]");
 const collapsibleMedia = document.querySelector("[data-collapsible-media]");
+const mediaTrack = document.querySelector("[data-media-track]");
+const mediaSlides = document.querySelectorAll(".media-slide");
+const mediaPrev = document.querySelector("[data-media-prev]");
+const mediaNext = document.querySelector("[data-media-next]");
+const mediaDots = document.querySelectorAll("[data-media-dot]");
+const searchOpen = document.querySelector("[data-search-open]");
+const searchPanel = document.querySelector("[data-search-panel]");
+const searchInput = document.querySelector("[data-search-input]");
+const searchClose = document.querySelector("[data-search-close]");
+const searchBackdrop = document.querySelector("[data-search-backdrop]");
 const validViews = new Set(Array.from(pageViews, (view) => view.getAttribute("data-view")));
+const mediaDurations = [6870, 6510];
+let activeMediaIndex = 0;
+let mediaTimer;
 
 function normalizeView(view) {
   return validViews.has(view) ? view : "home";
@@ -215,6 +229,67 @@ function updateCollapsibleMedia() {
   collapsibleMedia.style.setProperty("--media-progress", progress.toFixed(3));
 }
 
+function showMediaSlide(index) {
+  if (!mediaTrack || mediaSlides.length === 0) {
+    return;
+  }
+
+  window.clearTimeout(mediaTimer);
+  activeMediaIndex = (index + mediaSlides.length) % mediaSlides.length;
+  mediaTrack.style.setProperty("--media-index", activeMediaIndex);
+
+  mediaSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("is-active", slideIndex === activeMediaIndex);
+  });
+
+  mediaDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === activeMediaIndex);
+    dot.setAttribute("aria-current", dotIndex === activeMediaIndex ? "true" : "false");
+  });
+
+  restartActiveMedia();
+  scheduleNextMediaSlide();
+}
+
+function restartActiveMedia() {
+  const activeImage = mediaSlides[activeMediaIndex]?.querySelector("img");
+  if (!activeImage) {
+    return;
+  }
+
+  if (!activeImage.dataset.originalSrc) {
+    activeImage.dataset.originalSrc = activeImage.getAttribute("src");
+  }
+
+  const originalSrc = activeImage.dataset.originalSrc;
+  activeImage.removeAttribute("src");
+  window.requestAnimationFrame(() => {
+    activeImage.setAttribute("src", originalSrc);
+  });
+}
+
+function scheduleNextMediaSlide() {
+  const duration = mediaDurations[activeMediaIndex] || 6500;
+  mediaTimer = window.setTimeout(() => {
+    showMediaSlide(activeMediaIndex + 1);
+  }, duration + 180);
+}
+
+function openSearchPanel() {
+  searchPanel?.classList.add("is-open");
+  searchBackdrop?.classList.add("is-open");
+  searchPanel?.setAttribute("aria-hidden", "false");
+  searchOpen?.setAttribute("aria-expanded", "true");
+  window.setTimeout(() => searchInput?.focus(), 80);
+}
+
+function closeSearchPanel() {
+  searchPanel?.classList.remove("is-open");
+  searchBackdrop?.classList.remove("is-open");
+  searchPanel?.setAttribute("aria-hidden", "true");
+  searchOpen?.setAttribute("aria-expanded", "false");
+}
+
 function applyLanguage(language) {
   const dictionary = translations[language] || translations.en;
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
@@ -232,6 +307,10 @@ function applyLanguage(language) {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
+  if (searchInput) {
+    searchInput.setAttribute("placeholder", dictionary.searchPlaceholder);
+  }
+
   window.localStorage.setItem("team-home-language", language);
 }
 
@@ -248,6 +327,37 @@ viewLinks.forEach((link) => {
   });
 });
 
+mediaPrev?.addEventListener("click", () => {
+  showMediaSlide(activeMediaIndex - 1);
+});
+
+mediaNext?.addEventListener("click", () => {
+  showMediaSlide(activeMediaIndex + 1);
+});
+
+mediaDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    showMediaSlide(Number(dot.getAttribute("data-media-dot")));
+  });
+});
+
+searchOpen?.addEventListener("click", () => {
+  if (searchPanel?.classList.contains("is-open")) {
+    closeSearchPanel();
+    return;
+  }
+  openSearchPanel();
+});
+
+searchClose?.addEventListener("click", closeSearchPanel);
+searchBackdrop?.addEventListener("click", closeSearchPanel);
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeSearchPanel();
+  }
+});
+
 window.addEventListener("popstate", () => {
   showView(window.location.hash.slice(1), false);
 });
@@ -257,4 +367,5 @@ window.addEventListener("resize", updateCollapsibleMedia);
 
 applyLanguage(window.localStorage.getItem("team-home-language") || "en");
 showView(window.location.hash.slice(1), false);
+showMediaSlide(0);
 updateCollapsibleMedia();
